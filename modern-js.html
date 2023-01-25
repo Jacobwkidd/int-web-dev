@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            //                          , function
+            window.addEventListener("load", () => {
+
+                //const and let
+                const milesPerGallon = 40
+                //milesPerGallon = 80 you can't change a constant!
+
+
+                let myFriends = "Bob"
+                myFriends = "Betty"
+
+                function passOrFail(score){
+                    let result;
+                    if(score > 70){
+                        result = "Pass"
+                    }
+                    console.log(result)
+                }
+
+                passOrFail(75);
+
+
+
+                //ARROW functions
+
+                function someOldFunction(){
+
+                }
+
+                const someNewFunction = () => {
+
+                }
+
+
+                // The foreach() method
+
+                const scores = [88, 92, 94]
+                scores.push(100);
+
+
+                let sum = 0;
+                scores.forEach((ce)=>{
+                    console.log(ce)
+                    sum += ce
+                })
+
+                const avg = sum / scores.length
+                console.log(avg)
+
+
+
+            })
+        </script>
+    </head>
+    <body>
+        
+
+    </body>
+</html>
