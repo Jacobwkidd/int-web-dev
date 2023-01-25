@@ -56,12 +56,31 @@
                 console.log(avg)
 
 
+                //querySelector() and querySelectorAll()
+                const btn1 = document.querySelector("Btn1")
+                const ul = document.querySelector("ul.fruits")
+                console.log(ul)
+
+                const lis = document.querySelectorAll(".fruits li")
+                console.log(lis)
+
+                lis.forEach((li) => {
+                    console.log(li.outerHTML)
+                });
+
+
+
+
 
             })
         </script>
     </head>
     <body>
-        
+        <button id="Btn1">Button 1</button>
+        <ul class = "fruits">
+            <li><b> Apples</b></li>
+            <li>Oranges</li>
+        </ul>
 
     </body>
 </html>
