@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" /> 
   <title>Week 3 Coding Problems</title>
 
-  <!-- Bootstrap CDN Links -->
+  <!-- Bootstrap CDN Links --> 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
@@ -36,12 +36,12 @@
 		nums.push(40, 28)
   	//PROBLEM 4
   	// Write code that figures out the average of all the elements in the array of numbers.
-		// let sum = 0
-		// for(let i = 0; i <= nums.length; i++){
-		// 	sum += nums[i];
-		// }
-		// let avg = sum / nums.length
-		// console.log(sum)
+		let total = 0;
+		for(let i = 0; i < nums.length; i++){
+			total += nums[i];
+		}
+		let avg = total / nums.length
+		console.log(avg)
 
   	//PROBLEM 5
   	// Write code that figures out which cat in the array below is the oldest
@@ -51,11 +51,16 @@
   		{name: "Buster", age: 11},
   		{name: "Garfield", age: 7}
   	];
-		for(let i = 0; i < cats.length; i++){
-			if(cats.age){
-				console.log(cats)
-			}
-		}
+	let oldest = cats[0]
+	
+	
+	for(let i = 0; i < cats.length; i++){
+		let cats1 = cats[i].age;
+		if(cats[i].age > oldest.age){
+			oldest = cats[i]
+			console.log(oldest)	// note: take the console log outside of the loop because if there was many objects then it will override the next one.		
+		} // next would be console logging many.. not the oldest
+	}
 
   	//PROBLEM 6
   	// Add an event handler for then the form (at the bottom of the page) is submitted.
@@ -65,7 +70,35 @@
   	// If the checkbox is not checked, then prevent the form from submitting and display 
   	// some sort of message to the user that informs them that they must check the box
 
+	//const chkAgree = document.querySelector("#chkAgree")
+	const form = document.querySelector("#frmSignup")
+	
+	
+	// chkAgree.addEventListener("click", (evt) => {
+	// 	console.log("Click agree terms")
+	// })
+	// const someEventHandler = ("submit", (evt) => {
+		
+	// 		console.log(chkAgree)
+	// 		evt.preventDefault();
+		
+		
+	// })
+	// const otherEvent= ("click", (evt) => {
+	// 	console.log(evt)
+	// })
+	
+	form.addEventListener("submit", (evt) =>{
+		const chkAgree = document.querySelector("#chkAgree")
+		if(chkAgree.checked == false){ // or !chkAgree works too
+			evt.preventDefault()
+			alert("check the box")
+			// not in the problem
+			const sp = document.querySelector("#chkMessage")
+			sp.innerHTML = "<b>check the box</b>"
 
+		}
+	})
 
 
 
@@ -107,7 +140,7 @@
 			Explain the <b>indexOf()</b> method for arrays. What does it do? What parameters does it take (make sure to mention the data type(s))? What does it return (again, mention the data type)?
 			</p>
 			<div class="p-2 text-dark answer">
-				Put your answer here
+				it counts how many arrays are there by there index. it takes the position of the array and it takes ints, boolean, strings, char
 			</div>
 
 			<h3>Question 2</h3>
@@ -115,7 +148,7 @@
 					What is an <b>event handler</b> (also known as a <b>callback</b>)?
 			</p>
 			<div class="p-2 text-dark answer">
-				Put your answer here
+				a event handler is can change the outcome of the code so you can stop the event, start it, manipulate the code.
 			</div>
 
 			<h3>Question 3</h3>
@@ -123,7 +156,7 @@
 				What is the default behavior for when a form is submitted?
 			</p>
 			<div class="p-2 text-dark answer">
-				Put your answer here
+				submit the form's data to a URL that process the data. 
 			</div>
 			
 			<h3>Question 4</h3>
@@ -131,7 +164,7 @@
 				Which attribute of a form element determines where the data is sent when a form is submitted?
 			</p>
 			<div class="p-2 text-dark answer">
-				Put your answer here
+				the action attribute.. get method or post method
 			</div>
 			
 			<h3>Question 5</h3>
@@ -145,7 +178,7 @@
 				Which property of the someCheckbox object would you check to find if the checkbox is checked or not checked?
 			</p>
 			<div class="p-2 text-dark answer">
-				Put your answer here
+				.some-check-box
 			</div>
 
 			<h3>Question 6</h3>
@@ -159,7 +192,7 @@
 				Which property of the someTextbox object would you use to get the input entered into it by the user.
 			</p>
 			<div class="p-2 text-dark answer">
-				Put your answer here
+				.some-text-box
 			</div>
 
 			<h3>Question 7</h3>
@@ -167,7 +200,7 @@
 					What is the data type of the parameter that is passed into the forEach() array method?
 			</p>
 			<div class="p-2 text-dark answer">
-				Put your answer here
+				ints, doubles, index, etc
 			</div>
 			
 			<h3>Question 8</h3>
@@ -175,7 +208,7 @@
 					If you want to make use of the object that is created when an event occurs, you must add a parameter to your event handler function (TRUE or FALSE).
 			</p>
 			<div class="p-2 text-dark answer">
-				Put your answer here
+				true
 			</div>
 
 			<h3>Question 9</h3>
@@ -183,15 +216,15 @@
 				Breifly explain each of the following git commands (you can put your answer on the same line as the command name):
 			</p>
 			<div class="p-2 text-dark answer">
-				<b>git init</b> - 
+				<b>git init</b> - creates a new git repository
 				<br><br>
-				<b>git status</b> - 
+				<b>git status</b> - displays your work 
 				<br><br>
-				<b>git add</b> - 
+				<b>git add</b> - adding to project or branch
 				<br><br>
-				<b>git commit</b> - 
+				<b>git commit</b> - used to save your changes 
 				<br><br>
-				<b>git log</b> - 
+				<b>git log</b> - view the history of the changes within the git repository
 				<br><br>
 			</div>
 
@@ -212,6 +245,7 @@
 			  <div class="form-check m-2">
 			    <input type="checkbox" name="terms" class="form-check-input" id="chkAgree" value="agreed">
 			    <label class="form-check-label" for="chkAgree">Agree to our <a href="#" id="terms-link">terms of service</a></label>
+				<span id = "chkMessage"></span>
 			  </div>
 			  <button type="submit" class="btn btn-primary">Submit</button>
 			</form>

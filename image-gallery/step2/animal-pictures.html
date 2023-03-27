@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Animal Pictures</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Image Gallery">
+  <meta name="viewport" content="width=device-width">
+  <style>
+    /*
+    Note that on your final project, the following CSS code 
+    should go into your style sheet (main.css)
+    */
+    input[type=button]{
+      border:2px solid gray;
+      background-color: #333333;
+      border-radius: 4px;
+      padding:10px;
+      color:gray;
+      font-weight: bold;
+    }
+
+    #image-gallery{
+      width:380px;
+    }
+
+    #image-gallery #mainImg{
+      width:100%;
+      border: 2px solid #333333;
+    }
+  </style>
+  
+
+  <script>
+    window.addEventListener("load", () => {
+        var animalImages = [
+          {path: "../images/Jellyfish.jpg", description:"A cool jelly fish.", artist:"Betty Carter", "date": "3/31/2019", tags:["animals", "ocean", "fish"]},
+          {path: "../images/Koala.jpg", description:"A cute koala bear", artist:"Bob Smith", "date": "6/11/2020", tags:["animals", "bears"]},
+          {path: "../images/Penguins.jpg", description:"Lots of penguins", artist:"Jim Johansen", "date": "1/13/2018", tags:["animals", "ocean", "birds"]}
+        ];
+
+
+      const mainImg = document.getElementById("mainImg");
+      const caption = document.getElementById("caption");
+      const btnPrev = document.getElementById("btnPrev");
+      const btnNext = document.getElementById("btnNext");
+
+      let currentImg = 0;
+
+
+      const showImage = (imgObj) => {
+        mainImg.src = imgObj.path;
+        caption.innerHTML = imgObj.description;
+        mainImg.alt = imgObj.description;
+      }
+
+      showImage(animalImages[0]);
+
+
+      btnNext.addEventListener("click", () => {
+        currentImg++;
+        if(currentImg == animalImages.length){
+          currentImg = 0;
+        }
+        showImage(animalImages[currentImg]);
+      });
+
+      btnNext.addEventListener("click", () => {
+        currentImg++;
+        if(currentImg == animalImages.length){
+          currentImg = 0;
+        }
+        showImage(animalImages[currentImg]);
+      });
+
+      btnPrev.addEventListener("click", ()=>{
+        currentImg--;
+        if(currentImg < 0){
+          currentImg = animalImages.length -1;
+        }
+        showImage(animalImages[currentImg]);
+      })
+
+    });
+  </script>
+  
+</head>
+<body>  
+	<h1>Animal Pictures</h1>
+  <div id="image-gallery">
+    <img id="mainImg" src="" />
+    <h3 id="caption"></h3>
+    <input type="button" id="btnPrev" value="Prev" />
+    &nbsp;
+    <input type="button" id="btnNext" value="Next" />
+  </div>
+  <p>
+    Your assignment is to add an image gallery to this page, just like the one we created in step 1, 
+    except that this image gallery will show animal images rather than landscape images.
+    Use the animalImages array in the script element above.
+  </p>
+  
+</body>
+</html>
+
+

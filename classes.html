@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            class BankAccount{
+
+                #balance; // # = private 
+
+                constructor(id, customerName){
+                    this.id = id;
+                    this.customerName = customerName;
+                    this.#balance = 0;
+                }
+                deposit(amount){
+                    this.#balance += amount;
+                }
+                widthdraw(amount){
+                    if(amount < this.#balance){
+                        this.#balance -= amount;
+                    }
+                    else{
+                        throw new Error(" Overdraft!");
+                    }
+                    
+                }
+                get balance(){
+                    return this.#balance;
+                }
+                // set balance(newBalance){ force 
+                //     this.#balance = newBalance;
+                // }
+
+            }
+
+            const acct = new BankAccount(1, "Bob");
+            //console.log(acct);
+            acct.deposit(400);
+            acct.widthdraw(50);
+            
+            try{
+                acct.widthdraw(450); // try catch blocks
+            } 
+            catch(e){
+                alert("Unable to withdraw" + e.message);
+            }
+
+                
+            //console.log(acct);
+            //acct.balance = 100000000;
+            //console.log(acct.#balance); cant access it because it's private
+            console.log(acct.balance); //seeing their balance
+            // acct.balance = 100;
+            // console.log(acct.balance);
+
+            class InterestBearingAccount extends BankAccount{
+                
+                #interestRate;
+                #interestEarned;
+
+                constructor(id, name, interestRate){
+                    super(id, name);
+                    this.#interestRate = interestRate;
+                    this.#interestEarned = 0;
+                }
+
+                addInterest(){
+                    const interest = this.balance * this.#interestRate;
+                    this.deposit(interest);
+                    this.#interestEarned += interest;
+                }
+                
+                get interestEarned(){
+                    return this.#interestEarned;
+                }
+
+            }
+            
+            const ibAcct = new InterestBearingAccount(2, "Billy", 0.10);
+            console.log(ibAcct);
+            ibAcct.deposit(1000);
+            ibAcct.addInterest();
+            console.log(ibAcct);
+            console.log(ibAcct.interestEarned);
+
+
+            console.log(JSON.stringify(ibAcct));
+
+
+            class FullserviceBankAccount extends InterestBearingAccount{
+                #serviceFeeRate;
+                #totalServiceFees;
+
+
+                constructor(id, name, interestRate, serviceFeeRate){
+                    super(id, name, interestRate);
+                    this.#serviceFeeRate = serviceFeeRate;
+                    this.#totalServiceFees = 0;
+                }   
+
+                widthdraw(amount){
+                    const serviceFee = amount * this.#serviceFeeRate;
+                    super.widthdraw(amount + serviceFee);
+                    this.#totalServiceFees += serviceFee;
+                }
+
+                get totalServiceFee(){
+                    return this.#totalServiceFees;
+                }
+
+            }
+
+            const fsAcct = new FullserviceBankAccount(3, "Maddie", 0.10, 0.05);
+            fsAcct.deposit(50);
+            fsAcct.deposit(25);
+            try{
+                fsAcct.widthdraw(40);
+            }
+            catch(e){
+                alert("Error " + e.message);
+            }
+            
+            console.log(fsAcct.balance, fsAcct);
+            
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

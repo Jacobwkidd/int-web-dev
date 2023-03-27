@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Array Problems - Part 1</title>
+	<script type="text/javascript">
+
+	// use the following two arrays to solve the problems below
+	const people = [
+		{id:1, firstName:"Bob", lastName:"Smith", age: 17, vaccinated: false, email:"bob@bob.com"},
+		{id:2, firstName:"Tua", lastName:"Lor", age: 16, vaccinated: true, email:"tua@tua.com"},
+		{id:3, firstName:"Stan", lastName:"Jones", age: 24, vaccinated: true, email:"stan@stan.com"},
+		{id:4, firstName:"Jen", lastName:"Parker", age: 33, vaccinated: false, email:"jen@jen.com"},
+		{id:5, firstName:"Pedro", lastName:"Moreno", age: 27, vaccinated: false, email:"pedro@bob.com"},
+		{id:6, firstName:"Fritz", lastName:"Wilhelm", age: 23, vaccinated: true, email:"fritz@fritz.com"},
+		{id:7, firstName:"Nadia", lastName:"Bakhar", age: 26, vaccinated: true, email:"nadia@nadia.com"}
+	];
+		
+
+	const names = ["Bob","Tua","Stan","Jen","Pedro","Fritz","Nadia"];
+
+
+	console.log("Problem 1")
+	// log the first element in each array
+		console.log(names[0])
+		console.log(people[0])
+
+	console.log("Problem 2")
+	// log the last element in each array
+		console.log(names[6])
+		console.log(people[6])
+
+	console.log("Problem 3")
+	// Use the push method to add an element to each array
+	// (Add a string to the names array)
+	// (Add an object to the people array, it should have the same properties as the other elements in the array)
+		names.push("Ben")
+		console.log(names)
+		people.push({id: 8, firstName: "Bobby", lastName: "Dust", age: 55, vaccinated: true, email: "BobbyD@gmail.com"} )
+		console.log(people)
+
+	console.log("Problem 4")
+	// Use the join() method on the names array
+	// to create a string that looks like this:
+	// 		Bob,Tua,Stan,Jen,Pedro,Fritz,Nadia
+	// Note that this string is often called a csv string (comma separated values)
+	// And we'll by using csv strings more in the course.
+		console.log(names.join())
+
+
+	console.log("Problem 5")
+	// Write a function named getPersonById
+	// The function should have one parameter, which should be the 
+	// id number of the person to get from the array.
+	// In the body of the function, use a forEach() loop to search
+	// the people array for the object that matches the id param
+	// The function should return the person object whose id matches the parameter
+		
+
+		const getPersonById = (id) =>{
+			let matchingId;
+			people.forEach(personId => {
+				if(personId.id == id){
+					matchingId = personId
+				} 
+			})
+			return matchingId
+		}
+		console.log(getPersonById(5))
+
+
+
+	console.log("Problem 6")
+	// Use the forEach() method to console log each element in the names array.
+		people.forEach(element => {
+			console.log(element);
+		});
+
+
+	console.log("Problem 7") 
+	// Use the forEach() method to console log the firstName and lastName
+	// property of each element in the people array
+		people.forEach(element => {
+			console.log("First Name: " + element.firstName + " Last Name: " + element.lastName)
+		});
+
+
+	console.log("Problem 8")
+	// Write code that calculates how many elements in the people array
+	// are older than 20
+	// log the result when you are done.
+
+	let numOlderThan20 = 0;
+	people.forEach((p) => {
+		if(p.age > 20){
+			numOlderThan20++;
+		}
+	})
+	console.log(numOlderThan20);
+		
+	// for(let i = 0; i <= people.length; i++){	
+	// 	if(people[i].age > 20){
+	// 		console.log(people[i])
+	// 	}
+	// }
+
+
+
+	console.log("Problem 9")
+	// Write code that calculates how many elements in the people array -- Note: Just how many people are vaccinated
+	// have been vaccinated
+	// log the result when you are done.
+	
+	let numPeopVaccinated = 0;
+	people.forEach((p) => {
+		if(p.vaccinated == true){
+			numPeopVaccinated++;
+		}
+	})
+	console.log(numPeopVaccinated)
+		
+	// for(let i = 0; i <= people.length; i++){
+	// 	if(people[i].vaccinated == true){
+	// 		console.log(people[i])
+	// 	}	
+	// }
+
+
+	console.log("Problem 10")
+	// Use the find() method to find the element in the people array
+	// that has an id of 3
+	// Log the value that is returned by the find() method
+		let matchID = 3
+		let matchTheId = people.find((Id) =>{
+			return Id.id == matchID;
+		})
+		console.log(matchTheId)
+
+	
+	console.log("Problem 11")
+	// Use the find() method to find the element in the people array
+	// that has an email address of jen@jen.com 
+	// Log the value that is returned by the find() method
+		
+		// const jen = people.find((ce) => {
+		// 	if(ce.email == "jen@jen.com" ){
+		// 		return true
+		// 	}
+		// 	else{
+		// 		return false
+		// 	}
+		// })
+		const jen = people.find((ce) =>{ return ce.email == "jen@jen.com"})
+		console.log(jen)
+	
+	
+		// const findEmail = "jen@jen.com"
+		// let matchingEmails = people.find((peo) => {
+		// 	return peo.email == findEmail
+		// })
+		// console.log(matchingEmails)
+
+
+
+	console.log("Problem 12")
+	// Use the findIndex() method to find the index of the element in the people
+	// array that has a firstName of Fritz and a lastName of Wilhelm
+	// Log the value that is returned by the findIndex() method
+		const index = people.findIndex((ce) => {
+			if(ce.firstName == "Fritz" && ce.lastName == "Wilhelm"){
+				return true
+			}
+			else{
+				return false
+			}
+		})
+		//index = people.findIndex((ce) => {return ce.firstName =="Fritz" + ce.lastName == "Wilhelm" })
+		console.log(index)
+	
+		// const findInd = prompt("Enter the first name and last name")
+		// let matchingIndex = people.findIndex((ind) => {
+		// 	if(ind.firstName == "Fritz" && ind.lastName == "Wilhelm"){
+		// 		return ind.findInd == findInd 
+		// 	}
+		// })
+		// console.log(matchingIndex)
+
+	
+
+
+	console.log("Problem 13")
+	// Write a function named getPersonById2 (notice the 2 at the end)
+	// The function should have one parameter, which should be the 
+	// id number of the person to get from the array.
+	// In the body of the function, use the find() method on the people array
+	// to return the person object whose id matches the parameter
+	
+	const getEmployeeById2 = (id) => {
+		const person = people.find((cp) => {
+			if(id == cp.id){
+				return true
+			}
+			else{
+				return false
+			}
+		})
+		// return id == cp.id ... same
+		return person
+	}
+	console.log(getEmployeeById2(3))
+	
+	// const personId = 3;
+	// const getEmployeeById2 = people.find((peo) => {
+	// 		return peo.id == personId
+	// })
+	// console.log(getEmployeeById2)
+
+
+	
+
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

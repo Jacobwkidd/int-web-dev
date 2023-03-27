@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Array Problems - Part 2</title>
+	<script type="text/javascript">
+
+	// use the following array to solve the problems below
+	const people = [
+		{id:1, firstName:"Bob", lastName:"Smith", age: 17, vaccinated: false, email:"bob@bob.com"},
+		{id:2, firstName:"Tua", lastName:"Lor", age: 16, vaccinated: true, email:"tua@tua.com"},
+		{id:3, firstName:"Stan", lastName:"Jones", age: 24, vaccinated: true, email:"stan@stan.com"},
+		{id:4, firstName:"Jen", lastName:"Parker", age: 33, vaccinated: false, email:"jen@jen.com"},
+		{id:5, firstName:"Pedro", lastName:"Moreno", age: 27, vaccinated: false, email:"pedro@bob.com"},
+		{id:6, firstName:"Fritz", lastName:"Wilhelm", age: 23, vaccinated: true, email:"fritz@fritz.com"},
+		{id:7, firstName:"Nadia", lastName:"Bakhar", age: 26, vaccinated: true, email:"nadia@nadia.com"}
+	];
+		
+
+	console.log("Problem 1") 
+	// Use the map() method to create an array of strings
+	// each string should include the first and last name of each
+	// element in the array
+	// Log the value that is returned by the map() method
+	
+	//const fullNames = people.map((ce) => {return ce.firstName + " " + ce.lastName})
+	const fullNames = people.map(ce => ce.firstName + " " + ce.lastName)
+	console.log(fullNames)
+
+	console.log("Problem 2") 
+	// Use the map() method to create an array of email addresses (strings)
+	// from the people array
+	// Log the value that is returned by the map() method
+	const emails = people.map(ce => ce.email)
+	console.log(emails)
+
+
+	
+
+
+	console.log("Problem 3")
+	// Use the filter() method to create an array
+	// of all that people objects who are older than 20
+	// Log the value that is returned by the filter() method
+	const olderThan20 = people.filter(ce => ce.age > 20)
+	console.log(olderThan20)
+	
+
+
+	console.log("Problem 4")
+	// Use the filter() method to create an array
+	// of all that people objects who have been vaccinated
+	// Log the value that is returned by the filter() method
+	const peopleVaccinated = people.filter(ce => {return ce.vaccinated})
+	console.log(peopleVaccinated)
+	
+
+
+	console.log("Problem 5")
+	// Use the filter() method to create an array
+	// of all that people objects who are younger than 25 AND have been vaccinated
+	// Log the value that is returned by the filter() method
+	const youngerThan25 = people.filter(ce => {return ce.age < 25}) // it has to be true or false
+	console.log(youngerThan25)
+
+	
+
+
+	console.log("Problem 6")
+	// Use the reduce() method to calculate the sum of ages
+	// of all the elements in the people array
+	// Log the value that is returned by the reduce() method
+	const sum = people.reduce((s, ce) => {return s + ce.age}, 0)
+	console.log(sum)
+
+	let total = 0;
+	for(i = 0; i < people.length; i++){
+		total += people[i].age;
+	}
+	console.log(total)
+	
+
+
+	console.log("Problem 7")
+	// Use the slice() method to create an array
+	// that includes the last 3 elements from the people array
+	// Log the value that is returned
+	const peopleSlice = people.slice(4, 7)
+	console.log(peopleSlice)
+
+
+	console.log("Problem 8")
+	// explain the differences between the splice() and slice() methods
+	/*
+	Slicing is cutting it from start to finish. If you had 20 objects in an array and cut it at 14, 20 it will slice it at 15th through 20th object.
+	Overall slice doesn't effect the array. Splicing is removing, adding, etc values. Splicing changes the value.
+	*/
+
+
+	
+
+
+	
+
+
+	
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

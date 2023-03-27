@@ -1,0 +1,23 @@
+{
+  "name": "npm-project",
+  "version": "1.0.0",
+  "description": "Make sure you have nodejs and npm installed.\r To check for this run these commands:\r ```md\r node -v\r npm -v\r ```",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.3",
+    "@babel/plugin-syntax-class-properties": "^7.12.13",
+    "@babel/preset-env": "^7.20.2",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0"
+  }
+}

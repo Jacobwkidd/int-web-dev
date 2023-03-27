@@ -70,9 +70,61 @@
 
 
 
+                //conditional (ternery) operator
+                const score = 61;
+                const pass = score > 60 ? "PASS" : "FAIL";
+                console.log(pass)
+                //           setting the score to true and if the 60 is false
+                //same as this
+                //if(score > 60){
+                    //pass = "PASS"
+                //}
+                //else{
+                    //pass = "FAIL"
+                //}
 
 
-            })
+
+                // Ways to abbreviate arrow functions
+                const someArry = ["Bob", "Sally", "Betty"]
+                someArry.forEach(function(ce){console.log(ce)});
+                someArry.forEach((ce) => {console.log(ce)});
+                someArry.forEach(ce => {console.log(ce)}); // if the arrow function has one parameter, then you can omit the () ... ONLY ONE
+                someArry.forEach(ce => console.log(ce)); // if the arrow function has one statement, then you can omit the () ... ONLY ONE
+                someArry.findIndex(ce => { return ce == "Sally"});
+                someArry.findIndex(ce => ce == "Sally"); // IF the body of the arrow function has a single return statement,then you can omit 'return' and the {} 
+                
+                const isEven = (number) => { return number % 2 == 0};
+                const isEven2 = number => number % 2 == 0; // same thing as ^
+                console.log(isEven2(2));
+                console.log(isEven2(3));
+
+                //The template syntax
+                
+                const firstName = "Bob";
+                const lastName = "Smith";
+                const fullName = `full Name: ${firstName} ${lastName}` ;
+                console.log(fullName);
+
+                //optional chaining operator (?)
+                const house = {
+                    kitchen:{
+                        sink: "sink"
+                    }
+                };
+                console.log(house.kitchen.sink);
+                //console.log(house.bathroom.sink);  NOTE: this will crash because there is no bathroom property
+                console.log(house.bathroom?.sink); // NOTE: this wouldn't crash, it will just say undefined.
+
+                // in the old days we needed an if statement to prevent the page from crashing 
+                if(house.bathroom){
+                    console.log(house.bathroom.sink);
+                }
+
+                const x = house.bathroom?.sink;
+                console.log(x);
+
+            });
         </script>
     </head>
     <body>
