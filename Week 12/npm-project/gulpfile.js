@@ -1,5 +1,5 @@
 // IMPORTS
-const gulp = require('gulp');
+const gulp = require('gulp'); // going to node modules folder
 const babel = require('gulp-babel');
 const imagemin = require('gulp-imagemin');
 
@@ -18,7 +18,7 @@ const copy = (done) => {
 
 const transpile = (done) => {
     gulp.src('src/**/*.js')
-            .pipe(babel())
+            .pipe(babel()) // pipe is funneling information into another file.
             .pipe(gulp.dest('./dist'));
     done();
 }
@@ -27,7 +27,6 @@ const images = (done) => {
     gulp.src('src/images/**/*')
         .pipe(imagemin({ optimizationLevel: 5 }))
         .pipe(gulp.dest('dist/images/'));
-
     done();
 }
 

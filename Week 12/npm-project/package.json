@@ -18,6 +18,7 @@
     "@babel/plugin-syntax-class-properties": "^7.12.13",
     "@babel/preset-env": "^7.20.2",
     "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0"
+    "gulp-babel": "^8.0.0",
+    "jest": "^29.5.0"
   }
 }
