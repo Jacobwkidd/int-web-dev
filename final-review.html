@@ -16,7 +16,13 @@
 		// Bind the strings in the above array to the select element below
 		// (create an option element for each string and set it's text property)
 
-		
+		const catOps = document.querySelector("[name='name']");
+		for(let i = 0; i < catOptions.length; i++){
+			const HTML_Ops = document.createElement("li");
+			const opt = catOptions[i];
+			console.log(HTML_Ops.value);
+			catOps.append(HTML_Ops.opt);
+		}
 
 
 		// PROBLEM 2
@@ -39,18 +45,22 @@
 		The function should return the list
 		*/
 		const createCatList = (catArray) => {
-			document.getElementById("cat-list").innerHTML = ""; // You'll need this line here for later
-			// put your code here
+			const HTML_Cat = document.getElementById("cat-list").innerHTML = ""; // You'll need this line here for later
+			const li = document.createElement("li");
+			li.setAttribute('id', cats); // setting the attributes
+			const button = document.createElement("BUTTON"); 
+			button.textContent = "Details"; // creating the content inside the button
+			li.append(button);
 		}
 		
-
+		
 
 
 		// PROBLEM 3
 		// Call the function that you worked on in the previous problem
 		// by passing in the 'cats' array.
 		// Display the returned list in the 'cat-list' div below.
-		
+		createCatList(cats);
 		
 
 
@@ -58,7 +68,8 @@
 		// Add code to the getCatById() function below
 		// that will return the cat (from the cats array) which an id that matches the id parameter
 		const getCatById = (id) => {
-			// Put your code here
+			cats.filter(id);
+
 		}
 
 
@@ -67,9 +78,11 @@
 		// Inside the event handler function, use the filter method on the 'cats' array to
 		// create an array based on the selected option.
 		// Then pass the filtered array into the createCatList() function
-
+		const event = addEventListener("change", (evt) => {
+			evt.filter(selected.options);
+		})
 		
-
+		event(cats);
 
 		// PROBLEM 6
 		// Add code to the bindCatToForm() function that will bind the parameter
