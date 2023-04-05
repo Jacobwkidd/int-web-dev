@@ -85,7 +85,7 @@ Making the editor
 ```js
 <div id = "editor"></div>  
 ```
-
+Note to self: make notes about the code
 
 # The very basics of Quilljs
 
