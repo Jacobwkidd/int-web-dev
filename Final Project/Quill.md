@@ -73,7 +73,7 @@ Making the toolbar within the body of the html
 </script> 
   
 ```
-
+# Next we will break down the code so it's easier to understand.
 if someone has a blog for coding and they want to write raw html on the blog they can use the code block
 
 ```js 
@@ -98,6 +98,64 @@ basicEditor.addModule('toolbar', {
 ```
 This will include font sizes, bold, and italic.
 
+```js
+[{'header' : 1}, {'header' : 2}]
+```
+
+We can create headers inside the text editor. This is change the text to a bigger font.
+
+```js
+[{'list' : 'ordered'}, {'list': 'bullet'}]
+```
+
+We will create an ordered list and bullet inside this text editor. When someone blogs and needs to display a list, this is a easy way to make a list.
+
+```js
+[{'indent': '-1'}, {'indent': '+1'}]
+```
+This will indent your paragraph when you are blogging.
+
+```js
+[{'direction': 'rtl'}]
+```
+
+This will change the direction of where you are type. When typing you start on the left side of the page. This text editor will change it to typing left to right side.
+
+```js
+[{'size': ['small', false, 'large', 'huge']}]
+```
+This will change the font size of the text. Note: that these will have an array of size because you will have to click on the size to see all of the sizes.
+```js
+[{'link', 'image', 'video', 'formula'}]
+```
+Linking an image to a blog can be useful to giving information to people. This can link images, videos, formula.
+
+```js
+[{'color' : []}, {'background': []}]
+```
+This can change the background of the text also the text. These are an array of colors build inside the code but you can add more to Quilljs
 
 
 
+We can orginize our data where ever we want.
+```js
+    let toolbarOptions = [
+        ['bold', 'italic', 'underline', 'strike',
+        'blockquote', 'code-block',
+        {'header' : 1}, {'header' : 2},
+        {'list' : 'ordered'}, {'list': 'bullet'},
+        {'script' : 'sub'}, {'script', 'super'},
+        {'indent': '-1'}, {'indent': '+1'},
+        {'direction': 'rtl'},
+        {'size': ['small', false, 'large', 'huge']},
+        {'link', 'image', 'video', 'formula'},
+        {'color' : []}, {'background': []},
+        {'font': []},
+        {'align': []}]
+
+    ];
+    let 
+
+
+
+```
