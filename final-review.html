@@ -16,10 +16,12 @@
 		// Bind the strings in the above array to the select element below
 		// (create an option element for each string and set it's text property)
 
-		const catOps = document.querySelector("[name='name']");
+		const catOps = document.querySelector("#cat-options");
+		//console.log(catOps)
 		for(let i = 0; i < catOptions.length; i++){
-			const HTML_Ops = document.createElement("li");
+			const HTML_Ops = document.createElement("option");
 			HTML_Ops.textContent = catOptions[i];
+			
 			// console.log(HTML_Ops.value);
 			catOps.append(HTML_Ops);
 		}
@@ -46,12 +48,20 @@
 		*/
 		const createCatList = (catArray) => {
 			const HTML_Cat = document.getElementById("cat-list").innerHTML = ""; // You'll need this line here for later
-			const li = document.createElement("li");
-			li.setAttribute('id', cats); // setting the attributes
-			const button = document.createElement("BUTTON"); 
-			button.textContent = "Details"; // creating the content inside the button
-			li.append(button);
+			const ul = document.createElement("ul");
+			catArray.forEach((cat) => {
+				const li = document.createElement("li");
+				li.dataset.id = cat.id; // setting the attributes with the id
+				li.innerHTML = cat.name;
+				const button = document.createElement("input"); 
+				button.setAttribute("type", "button");
+				button.value = "Details"; // creating the content inside the button
+				li.append(button);
+				ul.append(li);
+			});
+			return ul
 		}
+		//create ul for this function that loops through the li tag
 		
 		
 
@@ -62,7 +72,7 @@
 		// Display the returned list in the 'cat-list' div below.
 		const catDiv = document.querySelector("#cat-list");
 		const listOfCats = createCatList(cats);
-		catDiv.innerHTML = listOfCats;
+		catDiv.append(listOfCats);
 		
 
 
@@ -72,7 +82,7 @@
 		const getCatById = (id) => {
 			cats.filter(id);
 		}
-		getCatById(2);
+		//getCatById(2);
 
 		// PROBLEM 5
 		// Add an event handler to the select element that listens for 'change' events.
@@ -87,7 +97,7 @@
 			//evt.filter(selected.options);
 		})
 		
-		event(cats);
+		//event(cats);
 
 		// PROBLEM 6
 		// Add code to the bindCatToForm() function that will bind the parameter
@@ -129,18 +139,19 @@
 		//	3. Log the cat object after you create it
 		let cat = new Cat(5, "bob", 56, "Mut", "male", true);
 
-		const form = document.querySelector("cat-form");
+		const form = document.querySelector("#cat-form");
 		const txtid = form.querySelector("[name=id]");
 		const txtname = form.querySelector("[name=name]");
 		const txtbreed = form.querySelector("[name=breed]");
-		const txtgender = form.querySelector("[name=gender]");
+		const gender = form.querySelectorAll("[name=gender]");
 		const txtvax = form.querySelector("[name=vaccinated]");
 
 		txtid.value = cat.id;
 		txtname.value = cat.name;
 		txtbreed.value = cat.breed;
-		txtgender.foreach((rad)=>{
-			rad.checked = rad.value == cat.geender ? true: false;
+		console.log(gender)
+		gender.forEach((rad)=>{
+			rad.checked = rad.value == cat.gender ? true: false;
 		});
 
 		form.addEventListener("submit", (sub)=>{
