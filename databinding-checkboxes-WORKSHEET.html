@@ -83,15 +83,15 @@
 			const div = document.createElement("div");
 
 			departments.forEach(dept => {
-				const label = document.createElement("label")
+				const label = document.createElement("label");
 				label.innerHTML = dept;
 
-				const chk = document.createElement("input")
-				chk.setAttribute("type", "checkbox")
-				chk.setAttribute("value", dept)
-				chk.setAttribute("name", "departments")
+				const chk = document.createElement("input");
+				chk.setAttribute("type", "checkbox");
+				chk.setAttribute("value", dept);
+				chk.setAttribute("name", "departments");
 
-				div.append(chk, label)
+				div.append(chk, label);
 			})
 
 			return div;
